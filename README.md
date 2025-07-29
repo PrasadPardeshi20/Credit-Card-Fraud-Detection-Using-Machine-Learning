@@ -87,5 +87,16 @@ Perform threshold tuning for better precision-recall trade-off
 🙏 Acknowledgments
 Inspired by various Kaggle datasets on transaction fraud
 
+---
+
+### ⚠️ Note on Dataset
+
+The dataset used in this project is extremely large (~6.3 million rows), which exceeds GitHub's file size limit (100 MB). Therefore:
+
+- The CSV file **is not uploaded** to this repository.
+- To run the project locally, you must place the dataset manually in the `data/` folder.
+- Make sure the file is named `Fraud.csv`.
+
+> If you need help getting the dataset, feel free to raise an issue or contact the project author.
 
 
