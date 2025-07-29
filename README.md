@@ -63,7 +63,7 @@ Actual: Fraud                      18                2,419
 
 🚀 How to Run
 1. Clone the repo:
-  git clone https://github.com/your-username/Fraud-Detection-Project.git
+  git clone https://github.com/PrasadPardeshi20/Credit-Card-Fraud-Detection-Using-Machine-Learning.git
 cd Fraud-Detection-Project
 
 2. Install dependencies:
