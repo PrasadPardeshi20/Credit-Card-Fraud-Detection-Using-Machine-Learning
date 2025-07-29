@@ -64,11 +64,10 @@ F1 Score (Fraud)	0.05
 0.05
 
 ### 🧮 Confusion Matrix:
-
-                         Predicted: Not Fraud     Predicted: Fraud
-                         
-Actual: Not Fraud            1,821,544               84,805
-Actual: Fraud                      18                2,419
+|                       | Predicted: Not Fraud | Predicted: Fraud |
+|-----------------------|----------------------|------------------|
+| **Actual: Not Fraud** | 1,821,544            | 84,805           |
+| **Actual: Fraud**     | 18                   | 2,419            |
 
 ### 🚀 How to Run
 1. Clone the repo:
