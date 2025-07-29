@@ -87,44 +87,6 @@ Actual: Fraud                      18                2,419
 Interpretation
 High recall: almost all fraud cases are detected
 
-Low precision: many false positives, but acceptable in high-risk domains like banking
-
-Shows strong fraud sensitivity — a good baseline for deployment
-
-🛠️ How to Run
-bash
-Copy
-Edit
-# Clone the repository
-git clone https://github.com/your-username/fraud-detection-ml.git
-cd fraud-detection-ml
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the notebook
-jupyter notebook Fraud_Detection.ipynb
-📦 Dependencies
-Python 3.x
-
-pandas
-
-numpy
-
-matplotlib
-
-seaborn
-
-scikit-learn
-
-🚀 Future Improvements
-Try tree-based models: Random Forest, XGBoost
-
-Use SMOTE or undersampling to handle class imbalance
-
-Perform hyperparameter tuning and feature selection
-
-Add real-time streaming fraud detection logic
 
 ✍️ Author
 Prasad Pardeshi
