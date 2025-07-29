@@ -1,14 +1,17 @@
-💳 Credit Card Fraud Detection using Logistic Regression
+### 💳 Credit Card Fraud Detection using Logistic Regression:
+
 Fraudulent transactions are a critical challenge in the financial sector. This project focuses on detecting fraudulent transactions using a logistic regression model trained on a highly imbalanced dataset of over 6.3 million transactions.
 
-📁 Dataset Information
+### 📁 Dataset Information:
+
 Rows: ~6.3 million
 
 Columns: 10
 
 Due to large size, the dataset is not uploaded to this repo.
 
-📊 Features
+### 📊 Features: 
+
 Feature Name	Description
 step	Time step of the transaction
 type	Type of transaction (e.g., CASH_OUT, TRANSFER)
@@ -20,7 +23,8 @@ newbalanceDest	Receiver’s balance after transaction
 isFraud	Target variable (1 = Fraud, 0 = Not Fraud)
 isFlaggedFraud	System flag (always 0 here, dropped during preprocessing)
 
-🧪 Exploratory Data Analysis (EDA)
+### 🧪 Exploratory Data Analysis (EDA):
+
 The dataset is highly imbalanced — most transactions are genuine.
 
 Fraud is concentrated in CASH_OUT and TRANSFER transaction types.
@@ -29,7 +33,8 @@ Extreme values found in multiple columns like amount, oldbalanceOrg — handled 
 
 Heatmap revealed strong correlation between oldbalanceDest and newbalanceDest.
 
-🛠️ Data Preprocessing
+### 🛠️ Data Preprocessing: 
+
 Log Transformation on skewed columns to reduce outlier impact:
 
 amount, oldbalanceOrg, newbalanceOrig, oldbalanceDest, newbalanceDest
@@ -40,14 +45,16 @@ Dropped isFlaggedFraud as it held no meaningful variance.
 
 Class imbalance handled using class_weight='balanced' in model training.
 
-🤖 Model: Logistic Regression
+### 🤖 Model: Logistic Regression:
+
 Chosen for its simplicity and explainability.
 
 Used class_weight='balanced' to deal with data imbalance.
 
 Trained on preprocessed data with transformed numerical features.
 
-📈 Model Performance
+### 📈 Model Performance:
+
 Metric	Value
 Accuracy	96%
 Recall (Fraud)	0.99 ✅
@@ -56,12 +63,13 @@ F1 Score (Fraud)	0.05
 
 0.05
 
-🧮 Confusion Matrix:
+### 🧮 Confusion Matrix:
+
                          Predicted: Not Fraud     Predicted: Fraud
 Actual: Not Fraud            1,821,544               84,805
 Actual: Fraud                      18                2,419
 
-🚀 How to Run
+### 🚀 How to Run
 1. Clone the repo:
   git clone https://github.com/PrasadPardeshi20/Credit-Card-Fraud-Detection-Using-Machine-Learning.git
 cd Fraud-Detection-Project
@@ -75,7 +83,7 @@ cd Fraud-Detection-Project
    jupyter notebook Fraud_Detection.ipynb
 
  
-🔮 Future Improvements
+### 🔮 Future Improvements
 Try ensemble models: Random Forest, XGBoost, LightGBM
 
 Use SMOTE or under-sampling for better class balance
@@ -84,7 +92,7 @@ Integrate real-time fraud detection pipeline (e.g., Kafka + Flask)
 
 Perform threshold tuning for better precision-recall trade-off
 
-🙏 Acknowledgments
+### 🙏 Acknowledgments
 Inspired by various Kaggle datasets on transaction fraud
 
 ---
