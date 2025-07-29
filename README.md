@@ -1,92 +1,91 @@
-💳 Fraud Detection System using Machine Learning
-This project implements a fraud detection system on a large-scale transactional dataset using Logistic Regression as the baseline model. It includes comprehensive data preprocessing, exploratory data analysis, and performance evaluation — with special attention to class imbalance and outliers.
+💳 Credit Card Fraud Detection using Logistic Regression
+Fraudulent transactions are a critical challenge in the financial sector. This project focuses on detecting fraudulent transactions using a logistic regression model trained on a highly imbalanced dataset of over 6.3 million transactions.
 
-📁 Dataset Overview
-Size: ~6.3 million rows and 10 columns
+📁 Dataset Information
+Rows: ~6.3 million
 
-Each row represents a financial transaction
+Columns: 10
 
-Target Variable: isFraud (1 = Fraudulent, 0 = Normal)
+Due to large size, the dataset is not uploaded to this repo.
 
-Transaction types: CASH_OUT, TRANSFER, PAYMENT, DEBIT, etc.
+📊 Features
+Feature Name	Description
+step	Time step of the transaction
+type	Type of transaction (e.g., CASH_OUT, TRANSFER)
+amount	Transaction amount
+oldbalanceOrg	Sender’s original balance
+newbalanceOrig	Sender’s balance after transaction
+oldbalanceDest	Receiver’s original balance
+newbalanceDest	Receiver’s balance after transaction
+isFraud	Target variable (1 = Fraud, 0 = Not Fraud)
+isFlaggedFraud	System flag (always 0 here, dropped during preprocessing)
 
-🧹 Data Preprocessing
-Removed identifier columns: nameOrig, nameDest
+🧪 Exploratory Data Analysis (EDA)
+The dataset is highly imbalanced — most transactions are genuine.
 
-Applied log transformation (np.log1p) to numeric features with high skew:
+Fraud is concentrated in CASH_OUT and TRANSFER transaction types.
+
+Extreme values found in multiple columns like amount, oldbalanceOrg — handled using log1p transformation.
+
+Heatmap revealed strong correlation between oldbalanceDest and newbalanceDest.
+
+🛠️ Data Preprocessing
+Log Transformation on skewed columns to reduce outlier impact:
 
 amount, oldbalanceOrg, newbalanceOrig, oldbalanceDest, newbalanceDest
 
-Used One-Hot Encoding for the type column to avoid false ordinal relationships
+One-Hot Encoding for type (categorical, non-ordinal).
 
-Dropped isFlaggedFraud due to no useful correlation with fraud
+Dropped isFlaggedFraud as it held no meaningful variance.
 
-📊 Exploratory Data Analysis
-Target Variable Distribution
-The dataset is highly imbalanced — very few fraudulent transactions compared to non-fraud
+Class imbalance handled using class_weight='balanced' in model training.
 
-Class imbalance is a critical issue that required correction before modeling
+🤖 Model: Logistic Regression
+Chosen for its simplicity and explainability.
 
-Transaction Type & Fraud
-Most fraudulent transactions occurred in TRANSFER and CASH_OUT types
+Used class_weight='balanced' to deal with data imbalance.
 
-Correlation Heatmap
-oldbalanceDest and newbalanceDest showed high correlation (~0.88)
+Trained on preprocessed data with transformed numerical features.
 
-isFraud had:
+📈 Model Performance
+Metric	Value
+Accuracy	96%
+Recall (Fraud)	0.99 ✅
+Precision (Fraud)	0.03 ⚠️
+F1 Score (Fraud)	0.05
 
-Moderate positive correlation with type_TRANSFER
+0.05
 
-Negative correlation with type_CASH_OUT
-
-isFlaggedFraud had no meaningful correlations — removed
-
-⚖️ Handling Class Imbalance
-We used:
-
-python
-Copy
-Edit
-class_weight='balanced'
-in Logistic Regression to automatically give more weight to minority (fraud) cases, compensating for the imbalance without oversampling or SMOTE.
-
-🧠 Model: Logistic Regression
-Why Logistic Regression?
-Lightweight and interpretable
-
-Scales to large datasets
-
-Good starting point for fraud detection pipelines
-
-Improvements Used:
-Log transformation of outliers
-
-One-hot encoding of categorical features
-
-Balanced class weights
-
-✅ Model Evaluation
-Classification Report
-Class	Precision	Recall	F1-score	Support
-Not Fraud (0)	1.00	0.96	0.98	1,906,349
-Fraud (1)	0.03	0.99	0.05	2,437
-
-Accuracy: 96%
-
-Recall (Fraud): 0.99 ✅
-
-Precision (Fraud): 0.03 ⚠️
-
-Confusion Matrix
-yaml
-Copy
-Edit
+🧮 Confusion Matrix:
                          Predicted: Not Fraud     Predicted: Fraud
 Actual: Not Fraud            1,821,544               84,805
 Actual: Fraud                      18                2,419
-Interpretation
-High recall: almost all fraud cases are detected
+
+🚀 How to Run
+1. Clone the repo:
+  git clone https://github.com/your-username/Fraud-Detection-Project.git
+cd Fraud-Detection-Project
+
+2. Install dependencies:
+   pip install -r requirements.txt
+
+3. Add the dataset to the jupyter folder (name it Fraud.csv)
+
+4. Open the notebook:
+   jupyter notebook Fraud_Detection.ipynb
+
+ 
+🔮 Future Improvements
+Try ensemble models: Random Forest, XGBoost, LightGBM
+
+Use SMOTE or under-sampling for better class balance
+
+Integrate real-time fraud detection pipeline (e.g., Kafka + Flask)
+
+Perform threshold tuning for better precision-recall trade-off
+
+🙏 Acknowledgments
+Inspired by various Kaggle datasets on transaction fraud
 
 
-✍️ Author
-Prasad Pardeshi
+
