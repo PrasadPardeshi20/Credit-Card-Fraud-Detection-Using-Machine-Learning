@@ -107,4 +107,16 @@ The dataset used in this project is extremely large (~6.3 million rows), which e
 
 > If you need help getting the dataset, feel free to raise an issue or contact the project author.
 
+## Imbalanced Data Handling
 
+This dataset contains ~6.3 million transactions with only ~0.17% being fraud cases.  
+Instead of applying SMOTE (which is computationally expensive and can cause overfitting in such large datasets),  
+we used `class_weight='balanced'` in Logistic Regression to ensure the model pays more attention to the minority class.
+
+Additionally, threshold tuning was performed to balance the trade-off between high recall and acceptable precision.  
+This approach is more scalable and practical for real-world fraud detection systems dealing with big data.
+
+## Why SMOTE Was Not Used
+
+Due to the scale of the dataset (6.3M rows), SMOTE was avoided to prevent memory issues and overfitting.  
+Instead, class weighting and threshold tuning were chosen as more efficient and production-ready solutions.
