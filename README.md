@@ -47,6 +47,11 @@ Fraudulent transactions are rare but can cause huge losses. This project focuses
 - Avoided adding synthetic data which may introduce noise
 - Kept model interpretable and performance genuine
 
+This project uses a real-world dataset of **6.3 million+ credit card transactions** to detect fraudulent activity.  
+We compare **Logistic Regression** and **Decision Tree Classifier**, handle data imbalance using `class_weight='balanced'` (instead of SMOTE), and perform in-depth metric analysis (precision, recall, F1, ROC-AUC).  
+All decisions are optimized for real-world deployment, scalability, and model interpretability.
+
+
 ---
 
 ## 📌 Dataset Features
